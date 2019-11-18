@@ -7,7 +7,7 @@ exports.seed = function(knex) {
       return knex('stories').insert([
         {title: 'Amtrak Could Turn a Profit in 2020 for the First Time Ever', url: "https://www.wbur.org/hereandnow/2019/11/15/amtrak-profit-train-ceo-richard-anderson"},
         {title: 'Turkish coffee destroyed an empire', url: "https://www.1843magazine.com/food-drink/world-in-a-dish/how-turkish-coffee-destroyed-an-empire"},
-        {title: 'A foundation course in reading German', url: "A foundation course in reading German"},
+        {title: 'A foundation course in reading German', url: "https://courses.dcs.wisc.edu/wp/readinggerman/"},
         {title: 'Writing userspace USB drivers for abandoned devices', url: "https://blog.benjojo.co.uk/post/userspace-usb-drivers"},
         {title: 'Why 50 Ohms?', url: "https://www.microwaves101.com/encyclopedias/why-fifty-ohms"},
         {title: 'Show HN: Open-Source Alternative to Intercom, Drift, Zendesk, FreshChat', url: "https://github.com/chatwoot/chatwoot"},
