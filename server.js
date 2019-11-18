@@ -4,7 +4,7 @@ const helmet = require('helmet');
 
 const router = require('./data/router/router.js')
 const authRoutes = require('./data/router/auth-routes.js')
-const authenticate = require('../Backend/auth/restricted-middleware');
+const authenticate = require('./auth/restricted-middleware');
 const authRouter = require('./auth/auth-router.js');
 //import lol from '../Backend/auth/restricted-middleware'
 
