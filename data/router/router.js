@@ -28,7 +28,7 @@ router.get('/stories/:id', (req, res) => {
 })
 
 //POST -- 
-router.post('/stories', (req, res) => {
+router.post('/poststories', (req, res) => {
     const body = req.body;
     db.addStories(body)
     .then(story => {
