@@ -4,7 +4,9 @@ const db = require('../models/models.js')
 
 const router = express.Router();
 
-//Get ALL stories
+/////////////////////////CRUD DONE FOR STORIES\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+//Get ALL stories -- WORKS
 router.get('/stories', (req, res) => {
     db.getAllStories()
     .then(stories => {
@@ -15,7 +17,7 @@ router.get('/stories', (req, res) => {
     })
 })
 
-//Get stories by ID
+//Get stories by ID -- WORKS
 router.get('/stories/:id', (req, res) => {
     const id = req.params.id;
     db.getStoriesByID(id)
@@ -27,7 +29,7 @@ router.get('/stories/:id', (req, res) => {
     })
 })
 
-//POST -- 
+//POST -- WORKS
 router.post('/poststories', (req, res) => {
     const body = req.body;
     db.addStories(body)
@@ -39,7 +41,7 @@ router.post('/poststories', (req, res) => {
     })
 })
 
-//DEL -- 
+//DEL -- WORKS
 router.delete('/deletestories/:id', (req, res) => {
     const id = req.params.id;
     const {description, notes} = req.body;
@@ -53,11 +55,11 @@ router.delete('/deletestories/:id', (req, res) => {
 })
 
 //Update -- WORKS
-router.put('/stories/:id', (req, res) => {
+router.put('/updatestories/:id', (req, res) => {
     const id = req.params.id;
     //const {description, notes} = req.body;
     const body = req.body;
-    db.updateStroies(id, body)
+    db.updateStories(id, body)
     .then(story => {
         res.status(200).json(story);
       })
