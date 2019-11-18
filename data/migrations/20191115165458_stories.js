@@ -6,11 +6,18 @@ exports.up = function(knex) {
      tbl.text('title', 128).unique().notNullable();
      tbl.text('url').notNullable();
    })
+   .createTable('auth-stories', tbl => {
+    // creates a primary key called id
+    tbl.increments();
+    tbl.text('title', 128).unique().notNullable();
+    tbl.text('url').notNullable();
+  })
  };
  
  exports.down = function(knex) {
      return knex.schema
      .dropTableIfExists('stories')
+     .dropTableIfExists('auth-stories')
      
  };
  

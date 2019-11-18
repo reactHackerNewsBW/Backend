@@ -6,6 +6,7 @@ const router = express.Router();
 
 /////////////////////////CRUD DONE FOR STORIES\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
+////////////////////////////UN-AUTHORIZED ROUTES\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 //Get ALL stories -- WORKS
 router.get('/stories', (req, res) => {
     db.getAllStories()
@@ -67,7 +68,7 @@ router.put('/updatestories/:id', (req, res) => {
         res.status(500).json({ error: "You are not getting story data back" });
       });
 })
-
+////////////////////////////AUTHORIZED ROUTES\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 
 module.exports = router;

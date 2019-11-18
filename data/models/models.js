@@ -5,9 +5,14 @@ module.exports = {
     getStoriesByID,
     addStories,
     updateStories,
-    removeStories
+    removeStories,
+    getAllStoriesAuth,
+    getStoriesByIDAuth,
+    addStoriesAuth,
+    updateStoriesAuth,
+    removeStoriesAuth
 }
-
+////////////////////////////UN-AUTHORIZED ROUTES\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 //Get All requests
 function getAllStories(){
     return db('stories')
@@ -32,6 +37,36 @@ function updateStories(id, changes) {
 
 function removeStories(id) {
     return db('stories')
+      .where('id', id)
+      .del();
+  }
+
+  ////////////////////////////AUTHORIZED ROUTES\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+  //Get All requests
+function getAllStoriesAuth(){
+    return db('auth-stories')
+}
+
+function getStoriesByIDAuth(id){
+    return db('auth-stories').where({ id });
+}
+
+function addStoriesAuth(stories) {
+    return db('auth-stories')
+      .insert(stories)
+      .then(([id]) => this.get(id));
+  }
+
+function updateStoriesAuth(id, changes) {
+    return db('auth-stories')
+      .where('id', id)
+      .update(changes)
+      .then(count => (count > 0 ? this.get(id) : null));
+  }
+
+function removeStoriesAuth(id) {
+    return db('auth-stories')
       .where('id', id)
       .del();
   }
