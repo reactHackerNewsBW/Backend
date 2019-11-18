@@ -24,7 +24,8 @@ exports.seed = function(knex) {
         {title: 'Podman and Buildah for Docker Users', url: "https://developers.redhat.com/blog/2019/02/21/podman-and-buildah-for-docker-users/"},
         {title: 'Capture the Flag Competition Aims to Trace Missing Persons', url: "https://www.infosecurity-magazine.com/news/competition-aims-to-trace-missing/"},
         {title: 'Lessons from APL, a “lost” language', url: "https://blog.benjojo.co.uk/post/2014-05-26-APL-the-lost-language.md"},
-        {title: 'NUVIA: New Server CPU Startup Going After Intel and AMD', url: "https://www.anandtech.com/show/15115/nuvia-breaks-cover-new-startup-to-take-on-datacenter-cpu-market"}
+        {title: 'NUVIA: New Server CPU Startup Going After Intel and AMD', url: "https://www.anandtech.com/show/15115/nuvia-breaks-cover-new-startup-to-take-on-datacenter-cpu-market"},
+        {title: 'TEST', url: "TEST"}
       ]);
     });
 };
