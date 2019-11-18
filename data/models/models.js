@@ -2,9 +2,7 @@ const db = require('../db-config');
 
 module.exports = {
     getAllStories,
-    getStoriesByID,
-    getFood,
-    getFoodByID
+    getStoriesByID
 }
 
 //Get All requests
