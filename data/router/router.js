@@ -40,7 +40,7 @@ router.post('/poststories', (req, res) => {
 })
 
 //DEL -- 
-router.delete('/stories/:id', (req, res) => {
+router.delete('/deletestories/:id', (req, res) => {
     const id = req.params.id;
     const {description, notes} = req.body;
     db.removeStories(id)
