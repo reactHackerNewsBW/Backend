@@ -22,6 +22,8 @@ POST https://bw-backend-hn.herokuapp.com/api/auth/register
 
 -You need a username and a password. Required
 
+-Also can put in email, first name, last name, and I have a created_at variable which shows the time a person was registered. 
+
 ## Login with User:
 
 POST https://bw-backend-hn.herokuapp.com/api/auth/login
