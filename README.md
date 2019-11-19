@@ -14,12 +14,12 @@ POST story: https://bw-backend-hn.herokuapp.com/authapi/poststories
 
 ## Register User:
 
-POST http://localhost:5200/api/auth/register 
+POST https://bw-backend-hn.herokuapp.com/api/auth/register 
 -You need a username and a password. Required
 
 ## Login with User:
 
-POST http://localhost:5200/api/auth/login
+POST https://bw-backend-hn.herokuapp.com/api/auth/login
 -You need a username and a password. Required 
 	                
 
