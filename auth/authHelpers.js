@@ -1,5 +1,5 @@
 
-const Users = require("./resources/users/users.model");
+const Users = require("./auth.model");
 const bcrypt = require("bcryptjs");
 const jwt = require('jsonwebtoken');
 
@@ -19,13 +19,11 @@ const register = async (req, res,next) => {
 const login = async (req, res,next) => {
   let { username, password } = req.body;
   try {
-    const user = await Users.find({ username }).first()
+    const user = await Users.findBy({ username }).first()
 
     if (user && bcrypt.compareSync(password, user.password)) {
       const {id} = user;
-      const token = jwt.sign(user, "some_secret", {
-        expiresIn:3600
-      });
+      const token = getToken({username})
       res.status(200).json({
         id,
         token,
@@ -39,7 +37,16 @@ const login = async (req, res,next) => {
 
 
 };
-
+function getToken(username) {
+  const payload = {
+    username
+  }
+  const secret = process.env.JWT_SECRET
+  const options = {
+    expiresIn: '1d'
+  }
+  return jwt.sign(payload, secret, options)
+};
 module.exports = {
     login,
     register

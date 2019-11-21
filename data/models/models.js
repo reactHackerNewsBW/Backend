@@ -32,7 +32,7 @@ function updateStories(id, changes) {
     return db('stories')
       .where('id', id)
       .update(changes)
-      .then(count => (count > 0 ? this.get(id) : null));
+      .then(count => (count > 0 ? getStoriesByID(id) : null));
   }
 
 function removeStories(id) {
@@ -55,14 +55,14 @@ function getStoriesByIDAuth(id){
 function addStoriesAuth(stories) {
     return db('auth-stories')
       .insert(stories)
-      .then(([id]) => this.get(id));
+      .then(([id]) => getStoriesByID(id));
   }
 
 function updateStoriesAuth(id, changes) {
     return db('auth-stories')
       .where('id', id)
       .update(changes)
-      .then(count => (count > 0 ? this.get(id) : null));
+      .then(count => (count > 0 ? getStoriesByID(id) : null));
   }
 
 function removeStoriesAuth(id) {
