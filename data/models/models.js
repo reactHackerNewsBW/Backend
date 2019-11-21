@@ -25,7 +25,7 @@ function getStoriesByID(id){
 function addStories(stories) {
     return db('stories')
       .insert(stories)
-      .then(([id]) => this.get(id));
+      .then(([id]) => getStoriesByID(id));
   }
 
 function updateStories(id, changes) {
