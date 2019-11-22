@@ -1,22 +1,34 @@
-const express = require('express')
-const cors = require('cors');
-const helmet = require('helmet');
+const express = require("express");
+const cors = require("cors");
+const helmet = require("helmet");
 
-const router = require('./data/router/router.js')
-const authRoutes = require('./data/router/auth-routes.js')
-const authenticate = require('./auth/restricted-middleware');
-const authRouter = require('./auth/auth-router.js');
+const router = require("./data/router/router.js");
+const authRoutes = require("./data/router/auth-routes.js");
+const authenticate = require("./auth/restricted-middleware");
+const authRouter = require("./auth/auth-router.js");
 //import lol from '../Backend/auth/restricted-middleware'
 
-const server= express();
+const server = express();
 
 server.use(helmet());
 server.use(cors());
 server.use(express.json());
 
-server.use('/api/auth', authRouter);
-server.use('/api/', router);
-server.use('/authapi/', authenticate, authRoutes);
+server.use("/api/auth", authRouter);
+server.use("/api/", router);
+server.use("/authapi/", authenticate, authRoutes);
+server.get("/", (req, res, next) =>
+  res.status(200).json({
+    message: "server running"
+  })
+);
+
+server.use((err, req, res, next) => {
+  const { status, message } = err;
+  res.status(status).json({
+    message
+  });
+});
 
 module.exports = server;
 
